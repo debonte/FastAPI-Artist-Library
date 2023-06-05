@@ -2,7 +2,8 @@ import re
 from typing import Annotated
 
 from fastapi import APIRouter, Form, Request
-from jinja2_fragments.fastapi import Jinja2Blocks
+# from jinja2_fragments.fastapi import Jinja2Blocks
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 from app.config import Settings
@@ -10,7 +11,7 @@ import app.crud as crud
 from tinydb import TinyDB, Query
 
 settings = Settings()
-templates = Jinja2Blocks(directory=settings.TEMPLATE_DIR)
+templates = Jinja2Templates(directory=settings.TEMPLATE_DIR)
 
 router = APIRouter()
 
